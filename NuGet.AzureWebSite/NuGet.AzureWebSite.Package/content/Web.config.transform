@@ -1,0 +1,75 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<configuration>
+  <appSettings>
+    <!--
+            Determines if an Api Key is required to push\delete packages from the server. 
+    -->
+    <add key="requireApiKey" value="false" />
+    <!-- 
+            Set the value here to allow people to push/delete packages from the server.
+            NOTE: This is a shared key (password) for all users.
+    -->
+    <add key="apiKey" value="" />
+    <!--
+            Set the value here to connection string of Windows Azure Storage on Azure storage.
+        -->
+    <add key="azureStorageConnectionString" value="DefaultEndpointsProtocol=https;AccountName=YOUR BLOB ACCOUNT;AccountKey=YOUR BLOB ACCOUNT KEY" />
+    <!--
+            Set the value here to package file's stored blob container name.
+        -->
+    <add key="azureStorageBlobContainerName" value="nuget" />
+    <!--
+            Set the value here to package metadata's stored table name on Azure storage.
+        -->
+    <add key="azureStorageTableName" value="NuGetPackages" />
+	  <!--
+            Set the true or false here to redirect flag. If this value is true, Client can download a package from Blob.
+        -->
+	  <add key="redirectBlobUrlWithSAS" value="true" />
+  </appSettings>
+  <system.web>
+    <httpRuntime maxRequestLength="31457280" />
+	  <compilation debug="true" targetFramework="4.5">
+		  <assemblies>
+			  <add assembly="Microsoft.Data.Services, Version=5.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" />
+			  <add assembly="Microsoft.Data.Services.Client, Version=5.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" />
+			  <add assembly="Microsoft.Data.Edm, Version=5.0.2.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" />
+			  <add assembly="Microsoft.Data.OData, Version=5.0.2.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" />
+			  <add assembly="System.Spatial, Version=5.0.2.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" />
+		  </assemblies>
+	  </compilation>
+  </system.web>
+  <system.serviceModel>
+    <serviceHostingEnvironment aspNetCompatibilityEnabled="true" multipleSiteBindingsEnabled="true" />
+  </system.serviceModel>
+  <system.webServer>
+    <staticContent>
+      <mimeMap fileExtension=".nupkg" mimeType="application/zip" />
+    </staticContent>
+    <modules runAllManagedModulesForAllRequests="true" />
+  </system.webServer>
+  <runtime>
+    <assemblyBinding xmlns="urn:schemas-microsoft-com:asm.v1">
+      <dependentAssembly>
+        <assemblyIdentity name="Microsoft.Data.Services" publicKeyToken="31bf3856ad364e35" culture="neutral" />
+        <bindingRedirect oldVersion="0.0.0.0-5.0.0.0" newVersion="5.0.0.0" />
+      </dependentAssembly>
+      <dependentAssembly>
+        <assemblyIdentity name="Microsoft.Data.Services.Client" publicKeyToken="31bf3856ad364e35" culture="neutral" />
+        <bindingRedirect oldVersion="0.0.0.0-5.0.0.0" newVersion="5.0.0.0" />
+      </dependentAssembly>
+      <dependentAssembly>
+        <assemblyIdentity name="Microsoft.Data.Edm" publicKeyToken="31bf3856ad364e35" culture="neutral" />
+        <bindingRedirect oldVersion="0.0.0.0-5.0.2.0" newVersion="5.0.2.0" />
+      </dependentAssembly>
+      <dependentAssembly>
+        <assemblyIdentity name="Microsoft.Data.OData" publicKeyToken="31bf3856ad364e35" culture="neutral" />
+        <bindingRedirect oldVersion="0.0.0.0-5.0.2.0" newVersion="5.0.2.0" />
+      </dependentAssembly>
+      <dependentAssembly>
+        <assemblyIdentity name="System.Spatial" publicKeyToken="31bf3856ad364e35" culture="neutral" />
+        <bindingRedirect oldVersion="0.0.0.0-5.0.2.0" newVersion="5.0.2.0" />
+      </dependentAssembly>
+    </assemblyBinding>
+  </runtime>
+</configuration>

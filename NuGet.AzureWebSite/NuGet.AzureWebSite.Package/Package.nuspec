@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<package >
+  <metadata>
+    <id>NuGet.AzureWebSite</id>
+    <version>1.0.0.0</version>
+    <authors>buchizo</authors>
+    <owners>buchizo</owners>
+    <projectUrl>https://github.com/buchizo/NuGet.AzureWebSite</projectUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>
+Web Application used to host a NuGet feed on Windows Azure Web Sites.
+	</description>
+    <releaseNotes>
+    </releaseNotes>
+    <copyright>Copyright 2012, buchizo, All Rights Reserved.</copyright>
+    <tags>ASPNETWEBPAGES</tags>
+    <dependencies>
+		<dependency id="Microsoft.Data.Edm" version="5.0.2" />
+		<dependency id="Microsoft.Data.OData" version="5.0.2"/>
+		<dependency id="Microsoft.Web.Infrastructure" version="1.0.0.0" />
+		<dependency id="Microsoft.WindowsAzure.ConfigurationManager" version="1.7.0.3" />
+		<dependency id="Ninject" version="3.0.1.10" />
+		<dependency id="RouteMagic" version="1.2" />
+		<dependency id="System.Spatial" version="5.0.2" />
+		<dependency id="WebActivator" version="1.5.2"  />
+		<dependency id="WindowsAzure.Storage" version="2.0.1.0"  />
+	</dependencies>
+  </metadata>
+  <files>
+	  <file src="..\..\bin\NuGet.AzureWebSite.dll" target="lib\net45" />
+	  <file src="..\..\bin\NuGet.Core.dll" target="lib\net45" />
+	  <file src="lib\**" target="lib" />
+	  <file src="tools\**" target="tools" />
+	  <file src="content\Default.aspx" target="content\Default.aspx" />
+	  <file src="content\Web.config.transform" target="content" />
+	  <file src="content\DataServices\Packages.svc" target="content\DataServices\Packages.svc" />
+	  <file src="content\DataServices\Routes.cs.pp" target="content\DataServices" />
+  </files>
+</package>
