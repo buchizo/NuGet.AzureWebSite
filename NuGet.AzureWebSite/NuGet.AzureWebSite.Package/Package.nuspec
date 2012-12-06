@@ -2,7 +2,7 @@
 <package >
   <metadata>
     <id>NuGet.AzureWebSite</id>
-    <version>1.0.0.0</version>
+    <version>1.0.1.0</version>
     <authors>buchizo</authors>
     <owners>buchizo</owners>
     <projectUrl>https://github.com/buchizo/NuGet.AzureWebSite</projectUrl>
@@ -23,7 +23,7 @@ Web Application used to host a NuGet feed on Windows Azure Web Sites.
 		<dependency id="RouteMagic" version="1.2" />
 		<dependency id="System.Spatial" version="5.0.2" />
 		<dependency id="WebActivator" version="1.5.2"  />
-		<dependency id="WindowsAzure.Storage" version="2.0.1.0"  />
+		<dependency id="WindowsAzure.Storage" version="2.0.2.0"  />
 	</dependencies>
   </metadata>
   <files>
